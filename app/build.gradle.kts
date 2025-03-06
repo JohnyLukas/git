@@ -45,10 +45,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    api(project(":empty_feature_api"))
+    implementation(project(":empty_feature_api"))
     implementation(project(":empty_feature"))
 
-    api(project(":second_feature_api"))
+    implementation(project(":second_feature_api"))
     implementation(project(":second_feature"))
 
     // Dagger 2
