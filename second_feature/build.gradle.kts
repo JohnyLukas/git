@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    implementation(project(":api_second_feature"))
+    implementation(project(":second_feature_api"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

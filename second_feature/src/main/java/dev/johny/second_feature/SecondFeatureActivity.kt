@@ -10,7 +10,8 @@ class SecondFeatureActivity : AppCompatActivity() {
 
     companion object {
         fun getIntent(context: Context): Intent {
-            return SecondFeatureMediatorImpl().getIntent(context)
+            val mediator = (context.applicationContext as? SecondFeatureApplication)?.getMediator()
+            return mediator?.getIntent(context) ?: throw IllegalStateException()
         }
     }
 
@@ -21,4 +22,5 @@ class SecondFeatureActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.goSecondToEmptyFeature)
         button.setOnClickListener {}
     }
+
 }

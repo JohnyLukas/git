@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    implementation(project(":api_empty_feature"))
+    implementation(project(":empty_feature_api"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
