@@ -10,8 +10,7 @@ class EmptyFeatureActivity : AppCompatActivity() {
 
     companion object {
         fun getIntent(context: Context): Intent {
-            val mediator = (context.applicationContext as? EmptyFeatureApplication)?.getMediator()
-            return mediator?.getIntent(context) ?: throw IllegalStateException()
+            return Intent(context, EmptyFeatureActivity::class.java)
         }
     }
 
