@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.johny.empty_feature"
+    namespace = "dev.johny.second_feature"
     compileSdk = 35
 
     defaultConfig {
@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    implementation(project(":api_empty_feature"))
+    implementation(project(":api_second_feature"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
