@@ -5,9 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import dev.johny.api_empty_feature.EmptyFeatureMediator
 
-class EmptyFeatureActivity : AppCompatActivity(), EmptyFeatureMediator {
+class EmptyFeatureActivity : AppCompatActivity() {
+
+    companion object {
+        fun getIntent(context: Context): Intent {
+            return EmptyFeatureMediatorImpl().getIntent(context)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,9 +20,5 @@ class EmptyFeatureActivity : AppCompatActivity(), EmptyFeatureMediator {
 
         val button = findViewById<Button>(R.id.goEmptyToSecondFeature)
         button.setOnClickListener {}
-    }
-
-    override fun getIntent(context: Context): Intent {
-        return Intent(context, EmptyFeatureActivity::class.java)
     }
 }
