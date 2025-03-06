@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Github</string>
+    <string name="main_activity">Main Activity</string>
+    <string name="title_go_to_feature_button">Go to feature</string>
 </resources>
