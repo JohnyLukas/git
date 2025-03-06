@@ -19,7 +19,13 @@ class SecondFeatureActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second_feature)
 
         val button = findViewById<Button>(R.id.goSecondToEmptyFeature)
-        button.setOnClickListener {}
+        button.setOnClickListener {
+            val mediator = (applicationContext as? MyApplication)
+                ?.getSecondFeatureMediator()
+                ?: throw IllegalStateException()
+
+            startActivity(mediator.getSecondFeatureIntent(this))
+        }
     }
 
 }

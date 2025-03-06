@@ -19,7 +19,13 @@ class EmptyFeatureActivity : AppCompatActivity() {
         setContentView(R.layout.activity_empty_feature)
 
         val button = findViewById<Button>(R.id.goEmptyToSecondFeature)
-        button.setOnClickListener {}
+        button.setOnClickListener {
+            val mediator = (applicationContext as? MyApplication)
+                ?.getSecondFeatureMediator()
+                ?: throw IllegalStateException()
+
+            startActivity(mediator.getSecondFeatureIntent(this))
+        }
     }
 
 }

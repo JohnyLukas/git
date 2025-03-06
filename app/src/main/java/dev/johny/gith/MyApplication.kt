@@ -8,7 +8,7 @@ import dev.johny.api_second_feature.SecondFeatureMediatorProvider
 import dev.johny.empty_feature.EmptyFeatureMediatorImpl
 import dev.johny.second_feature.SecondFeatureMediatorImpl
 
-class Application : Application(), EmptyFeatureMediatorProvider, SecondFeatureMediatorProvider {
+class MyApplication : Application(), EmptyFeatureMediatorProvider, SecondFeatureMediatorProvider {
     override fun getEmptyFeatureMediator(): EmptyFeatureMediator {
         return EmptyFeatureMediatorImpl()
     }
