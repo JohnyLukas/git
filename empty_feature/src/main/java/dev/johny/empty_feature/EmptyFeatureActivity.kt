@@ -5,12 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import dev.johny.api_second_feature.SecondFeatureMediatorProvider
 
 class EmptyFeatureActivity : AppCompatActivity() {
 
     companion object {
         fun getIntent(context: Context): Intent {
-            return EmptyFeatureMediatorImpl().getIntent(context)
+            return Intent(context, EmptyFeatureActivity::class.java)
         }
     }
 
@@ -19,6 +20,13 @@ class EmptyFeatureActivity : AppCompatActivity() {
         setContentView(R.layout.activity_empty_feature)
 
         val button = findViewById<Button>(R.id.goEmptyToSecondFeature)
-        button.setOnClickListener {}
+        button.setOnClickListener {
+            val mediator = (applicationContext as? SecondFeatureMediatorProvider)
+                ?.getSecondFeatureMediator()
+                ?: throw IllegalStateException()
+
+            startActivity(mediator.getSecondFeatureIntent(this))
+        }
     }
+
 }

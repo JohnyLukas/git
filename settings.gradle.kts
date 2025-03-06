@@ -23,5 +23,5 @@ rootProject.name = "Github"
 include(":app")
 include(":empty_feature")
 include(":second_feature")
-include(":api_empty_feature")
-include(":api_second_feature")
+include(":empty_feature_api")
+include(":second_feature_api")
