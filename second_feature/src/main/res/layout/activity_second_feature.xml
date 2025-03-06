@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/main_activity"
+        android:text="@string/second_feature_activity"
         android:textAlignment="center"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,23 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/goMainToEmptyFeature"
+        android:id="@+id/goSecondToEmptyFeature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_go_to_empty_feature_button"
         android:layout_marginTop="16dp"
+        android:text="@string/title_go_to_empty_feature_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/goMainToSecondFeature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_go_to_second_feature_button"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goMainToEmptyFeature" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

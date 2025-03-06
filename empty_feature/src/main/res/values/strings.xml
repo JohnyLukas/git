@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="feature_activity">Feature Activity</string>
+    <string name="title_go_to_second_feature_button">Go to second feature</string>
 </resources>

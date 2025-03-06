@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(project(":empty_feature"))
+    implementation(project(":second_feature"))
 
     // Dagger 2
     implementation(libs.dagger.dagger)
