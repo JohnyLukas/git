@@ -1,5 +1,3 @@
 package dev.johny.second_feature
 
-import retrofit2.Retrofit
-
-class CatApiRepository(private val retrofit: Retrofit) : CatApi
+class CatApiRepository(private val apiService: CatApi) : CatApi

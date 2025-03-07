@@ -37,8 +37,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.retrofit2.retrofit)
 
     implementation(project(":second_feature_api"))
     implementation(project(":empty_feature_api"))
+    implementation(project(":core_network_api"))
+
 }

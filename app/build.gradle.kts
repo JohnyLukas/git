@@ -57,6 +57,4 @@ dependencies {
     // Dagger 2
     implementation(libs.dagger.dagger)
     kapt(libs.dagger.compiler)
-
-    implementation(libs.retrofit2.retrofit)
 }
