@@ -1,3 +1,3 @@
 package dev.johny.empty_feature
 
-class CatApiRepositoryImpl
+interface CatApi

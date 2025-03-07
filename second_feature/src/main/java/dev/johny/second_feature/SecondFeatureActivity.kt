@@ -5,9 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import dev.johny.api_empty_feature.EmptyFeatureMediatorProvider
 
 class SecondFeatureActivity : AppCompatActivity() {
+    val viewModel = ViewModelProvider(this)[SecondFeatureViewModel::class.java]
 
     companion object {
         fun getIntent(context: Context): Intent {

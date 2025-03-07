@@ -1,3 +1,3 @@
 package dev.johny.second_feature
 
-class CatApiRepositoryImpl
+interface CatApi
