@@ -19,10 +19,10 @@ class RetrofitProviderImpl : RetrofitProvider {
             .build()
     }
 
-    override fun provideRetrofit(baseUrl: String): Retrofit {
+    override fun provideRetrofit(): Retrofit {
         val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl("https://api.thecatapi.com/v1/images/")
             .addConverterFactory(Json.asConverterFactory(contentType))
             .client(provideOkHttpClient())
             .build()

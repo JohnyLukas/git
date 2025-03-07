@@ -20,7 +20,7 @@ class MyApplication : Application(), EmptyFeatureMediatorProvider, SecondFeature
         return SecondFeatureMediatorImpl()
     }
 
-    override fun provideRetrofit(baseUrl: String): Retrofit {
-        return RetrofitProviderImpl().provideRetrofit(baseUrl)
+    override fun provideRetrofit(): Retrofit {
+        return RetrofitProviderImpl().provideRetrofit()
     }
 }
