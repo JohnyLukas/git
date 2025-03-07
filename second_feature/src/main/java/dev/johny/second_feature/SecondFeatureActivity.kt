@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import dev.johny.api_empty_feature.EmptyFeatureMediatorProvider
 
 class SecondFeatureActivity : AppCompatActivity() {
-    val viewModel = ViewModelProvider(this)[SecondFeatureViewModel::class.java]
+    lateinit var viewModel: SecondFeatureViewModel
 
     companion object {
         fun getIntent(context: Context): Intent {
@@ -20,6 +20,7 @@ class SecondFeatureActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second_feature)
+        viewModel = ViewModelProvider(this)[SecondFeatureViewModel::class.java]
 
         val button = findViewById<Button>(R.id.goSecondToEmptyFeature)
         button.setOnClickListener {
