@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import dev.johny.api_second_feature.SecondFeatureMediatorProvider
 import dev.johny.core_network_api.ApiServiceProvider
 import kotlinx.coroutines.Dispatchers
@@ -33,14 +34,7 @@ class EmptyFeatureActivity : AppCompatActivity() {
             ?: throw IllegalStateException()
         val catApiRepository = CatApiRepository(apiService = catApiService)
 
-        val viewModelFactory = object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return when (modelClass) {
-                    EmptyFeatureViewModel::class.java -> EmptyFeatureViewModel(catApiRepository) as T
-                    else -> throw IllegalArgumentException("Unknown ViewModel")
-                }
-            }
-        }
+        val viewModelFactory = EmptyFeatureViewModel.EmptyFeatureViewModelFactory(catApiRepository)
 
         viewModel = ViewModelProvider(this, viewModelFactory)[EmptyFeatureViewModel::class.java]
 
@@ -59,9 +53,11 @@ class EmptyFeatureActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.cats.collect { cats ->
-                cats.forEach { cat ->
-                    Log.d("Cat log", cat.url)
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.cats.collect { cats ->
+                    cats.forEach { cat ->
+                        Log.d("Cat log", cat.url ?: "Unknown cat")
+                    }
                 }
             }
         }

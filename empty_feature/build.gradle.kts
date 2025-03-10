@@ -39,10 +39,10 @@ dependencies {
     implementation(project(":empty_feature_api"))
     implementation(project(":core_network_api"))
     implementation(project(":core_network"))
-    implementation(project(":second_feature"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlin.serialization.json)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 }
