@@ -1,3 +1,8 @@
 package dev.johny.second_feature
 
-class CatApiRepository(private val apiService: CatApi) : CatApi
+import dev.johny.second_feature.models.CatResponseItem
+
+
+class CatApiRepository(private val apiService: CatApi) {
+    suspend fun searchCats(limit: Int): List<CatResponseItem> = apiService.searchCats(limit = limit)
+}

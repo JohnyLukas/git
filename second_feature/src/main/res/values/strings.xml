@@ -2,4 +2,5 @@
 <resources>
     <string name="second_feature_activity">Second Feature Activity</string>
     <string name="title_go_to_empty_feature_button">Go to Empty Feature</string>
+    <string name="get_cats">Get cats</string>
 </resources>

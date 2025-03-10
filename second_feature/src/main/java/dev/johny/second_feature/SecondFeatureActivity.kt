@@ -3,12 +3,16 @@ package dev.johny.second_feature
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import dev.johny.api_empty_feature.EmptyFeatureMediatorProvider
 import dev.johny.core_network_api.ApiServiceProvider
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SecondFeatureActivity : AppCompatActivity() {
     lateinit var viewModel: SecondFeatureViewModel
@@ -47,6 +51,19 @@ class SecondFeatureActivity : AppCompatActivity() {
                 ?: throw IllegalStateException()
 
             startActivity(mediator.getEmptyFeatureIntent(this))
+        }
+
+        val catButton = findViewById<Button>(R.id.catsButton)
+        catButton.setOnClickListener {
+            viewModel.getCats(10)
+        }
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            viewModel.cats.collect { cats ->
+                cats.forEach { cat ->
+                    Log.d("Cat log", cat.url)
+                }
+            }
         }
     }
 
