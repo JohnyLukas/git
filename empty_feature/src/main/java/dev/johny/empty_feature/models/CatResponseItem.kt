@@ -8,11 +8,11 @@ import kotlinx.serialization.json.JsonNames
 @Serializable
 data class CatResponseItem  (
     @JsonNames("id")
-    val id: String? = null,
+    val id: String,
     @JsonNames("url")
-    val url: String? = null,
+    val url: String,
     @JsonNames("width")
-    val width: Int? = null,
+    val width: Int,
     @JsonNames("height")
-    val height: Int? = null,
+    val height: Int,
 )
