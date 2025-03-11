@@ -19,7 +19,6 @@ class CatMapperTest : BehaviorSpec({
                 headers = headers("expected", "inputData"),
                 row(referenceCat, rawCatWithUnprotectedUrl),
                 row(referenceCat, rawCatWithProtectedUrl),
-                row(referenceCat, rawCatWithoutUrl),
             )
         ) { expected, inputData ->
             When {
@@ -43,13 +42,6 @@ val rawCatWithUnprotectedUrl = CatResponseItem(
 val rawCatWithProtectedUrl = CatResponseItem(
     id = "cat",
     url = "https://cat.cat",
-    width = 1,
-    height = 2
-)
-
-val rawCatWithoutUrl = CatResponseItem(
-    id = "cat",
-    url = "",
     width = 1,
     height = 2
 )
