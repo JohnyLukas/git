@@ -4,5 +4,5 @@ import android.content.Context
 import android.content.Intent
 
 interface EmptyFeatureMediator {
-    fun getIntent(context: Context): Intent
+    fun getEmptyFeatureIntent(context: Context): Intent
 }

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -34,8 +35,14 @@ android {
 
 dependencies {
 
-    implementation(project(":api_empty_feature"))
+    implementation(project(":second_feature_api"))
+    implementation(project(":empty_feature_api"))
+    implementation(project(":core_network_api"))
+    implementation(project(":core_network"))
+
     implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlin.serialization.json)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 }

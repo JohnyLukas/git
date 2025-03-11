@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "dev.johny.second_feature"
+    namespace = "dev.johny.core_network_api"
     compileSdk = 35
 
     defaultConfig {
@@ -36,14 +35,6 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlin.serialization.json)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-
-    implementation(project(":second_feature_api"))
-    implementation(project(":empty_feature_api"))
-    implementation(project(":core_network_api"))
-    implementation(project(":core_network"))
-
 }

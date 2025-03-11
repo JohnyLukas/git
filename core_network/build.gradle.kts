@@ -1,22 +1,17 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
-    kotlin("kapt")
 }
 
 android {
-    namespace = "dev.johny.gith"
+    namespace = "dev.johny.core_network"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "dev.johny.gith"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -38,23 +33,18 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":core_network_api"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlin.serialization.json)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
 
-    implementation(project(":empty_feature_api"))
-    implementation(project(":empty_feature"))
-
-    implementation(project(":second_feature_api"))
-    implementation(project(":second_feature"))
-
-    implementation(project(":core_network"))
-    implementation(project(":core_network_api"))
-
-    // Dagger 2
-    implementation(libs.dagger.dagger)
-    kapt(libs.dagger.compiler)
+    // Network
+    api(libs.retrofit2.retrofit)
+    implementation(libs.retrofit2.converter.kotlinx.serialization)
+    implementation(platform(libs.okhttp3.bom))
+    implementation(libs.okhttp3.okhttp)
+    implementation(libs.okhttp3.loggingInterceptor)
 }
