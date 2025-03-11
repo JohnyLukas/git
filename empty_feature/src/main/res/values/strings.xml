@@ -2,4 +2,5 @@
 <resources>
     <string name="feature_activity">Feature Activity</string>
     <string name="title_go_to_second_feature_button">Go to second feature</string>
+    <string name="get_cat">Get Cat</string>
 </resources>

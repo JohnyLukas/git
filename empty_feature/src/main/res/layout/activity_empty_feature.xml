@@ -26,4 +26,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <Button
+        android:id="@+id/catButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/get_cat"
+        app:layout_constraintEnd_toEndOf="@+id/goEmptyToSecondFeature"
+        app:layout_constraintStart_toStartOf="@+id/goEmptyToSecondFeature"
+        app:layout_constraintTop_toBottomOf="@+id/goEmptyToSecondFeature" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

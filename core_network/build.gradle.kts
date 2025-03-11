@@ -42,7 +42,7 @@ dependencies {
     implementation(libs.material)
 
     // Network
-    implementation(libs.retrofit2.retrofit)
+    api(libs.retrofit2.retrofit)
     implementation(libs.retrofit2.converter.kotlinx.serialization)
     implementation(platform(libs.okhttp3.bom))
     implementation(libs.okhttp3.okhttp)
