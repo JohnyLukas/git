@@ -4,7 +4,7 @@ private const val protectedProtocol = "https://"
 private const val unprotectedProtocol = "http://"
 
 class CatMapper {
-    fun checkProtocolOnImageUrl(cat: CatResponseItem): CatResponseItem {
+    fun replaceUnsafeUrl(cat: CatResponseItem): CatResponseItem {
         val isUrlProtected = cat.url.startsWith(protectedProtocol)
 
         return if (isUrlProtected) {

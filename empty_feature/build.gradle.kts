@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    tasks.withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
@@ -45,4 +48,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    // Tests
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+    /*testImplementation(libs.kotest.extensions.mockserver)*/
 }

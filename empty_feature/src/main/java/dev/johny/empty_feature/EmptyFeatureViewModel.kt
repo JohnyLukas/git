@@ -22,7 +22,7 @@ class EmptyFeatureViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             val result = catApiRepository.search()
             _cats.value = result.map { cat ->
-                catMapper.checkProtocolOnImageUrl(cat)
+                catMapper.replaceUnsafeUrl(cat)
             }
         }
     }
