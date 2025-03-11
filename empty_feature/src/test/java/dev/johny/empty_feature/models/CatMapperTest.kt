@@ -4,37 +4,30 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.core.spec.style.scopes.BehaviorSpecGivenContainerScope
 import io.kotest.core.spec.style.scopes.BehaviorSpecWhenContainerScope
 import io.kotest.core.test.TestScope
+import io.kotest.data.forAll
+import io.kotest.data.headers
+import io.kotest.data.row
+import io.kotest.data.table
 import io.kotest.matchers.shouldBe
 
 class CatMapperTest : BehaviorSpec({
     val catMapper = CatMapper()
 
-    Given("Test cat mapper with cat unprotected url") {
-        When {
-            val result = catMapper.replaceUnsafeUrl(rawCatWithUnprotectedUrl)
+    Given("Test replacing unsafe URL in cat mapper") {
+        forAll(
+            table(
+                headers = headers("expected", "inputData"),
+                row(referenceCat, rawCatWithUnprotectedUrl),
+                row(referenceCat, rawCatWithProtectedUrl),
+                row(referenceCat, rawCatWithoutUrl),
+            )
+        ) { expected, inputData ->
+            When {
+                val result = catMapper.replaceUnsafeUrl(inputData)
 
-            Then {
-                result shouldBe referenceCat
-            }
-        }
-    }
-
-    Given("Test cat mapper with cat protected url") {
-        When {
-            val result = catMapper.replaceUnsafeUrl(rawCatWithProtectedUrl)
-
-            Then {
-                result shouldBe referenceCat
-            }
-        }
-    }
-
-    Given("Test cat mapper without cat url") {
-        When {
-            val result = catMapper.replaceUnsafeUrl(rawCatWithoutUrl)
-
-            Then {
-                result shouldBe referenceCat
+                Then {
+                    result shouldBe expected
+                }
             }
         }
     }
