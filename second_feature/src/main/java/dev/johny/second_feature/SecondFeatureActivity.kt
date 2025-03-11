@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dev.johny.api_empty_feature.EmptyFeatureMediatorProvider
 import dev.johny.core_network_api.ApiServiceProvider
+import dev.johny.second_feature.models.CatMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -33,8 +34,13 @@ class SecondFeatureActivity : AppCompatActivity() {
             ?.provideApiService(service = CatApi::class.java)
             ?: throw IllegalStateException()
         val catApiRepository = CatApiRepository(apiService = catApiService)
+        val catMapper = CatMapper()
 
-        val viewModelFactory = SecondFeatureViewModel.SecondFeatureViewModelFactory(catApiRepository)
+        val viewModelFactory = SecondFeatureViewModel
+            .SecondFeatureViewModelFactory(
+                catApiRepository = catApiRepository,
+                catMapper = catMapper,
+            )
 
         viewModel = ViewModelProvider(this, viewModelFactory)[SecondFeatureViewModel::class.java]
 
