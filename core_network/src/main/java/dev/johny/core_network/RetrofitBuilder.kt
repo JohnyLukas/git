@@ -7,8 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
-object RetrofitBuilder {
-    private const val BASE_URL = "https://api.thecatapi.com/v1/images/"
+private const val BASE_URL = "https://api.thecatapi.com/v1/images/"
+
+class RetrofitBuilder {
     private val contentType = "application/json".toMediaType()
 
     private val loggingInterceptor: HttpLoggingInterceptor by lazy {
