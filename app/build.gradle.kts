@@ -28,12 +28,18 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
+    }
+
+    tasks.withType<Test>().configureEach {
+        useJUnitPlatform()
     }
 }
 
@@ -57,4 +63,9 @@ dependencies {
     // Dagger 2
     implementation(libs.dagger.dagger)
     kapt(libs.dagger.compiler)
+
+    // Tests
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.extensions.mockserver)
 }
