@@ -17,8 +17,7 @@ class CatMapperTest : BehaviorSpec({
         forAll(
             table(
                 headers = headers("expected", "inputData"),
-                row(referenceCat, rawCatWithUnprotectedUrl),
-                row(referenceCat, rawCatWithProtectedUrl),
+                row(referenceCat, listOf(rawCatWithUnprotectedUrl, rawCatWithProtectedUrl)),
             )
         ) { expected, inputData ->
             When {
