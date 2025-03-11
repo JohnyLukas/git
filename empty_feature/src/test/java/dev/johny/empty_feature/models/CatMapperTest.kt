@@ -17,8 +17,7 @@ class CatMapperTest : BehaviorSpec({
         forAll(
             table(
                 headers = headers("expected", "inputData"),
-                row(referenceCat, rawCatWithUnprotectedUrl),
-                row(referenceCat, rawCatWithProtectedUrl),
+                row(referenceCats, listOf(rawCatWithUnprotectedUrl, rawCatWithProtectedUrl)),
             )
         ) { expected, inputData ->
             When {
@@ -33,24 +32,32 @@ class CatMapperTest : BehaviorSpec({
 })
 
 val rawCatWithUnprotectedUrl = CatResponseItem(
-    id = "cat",
+    id = "cat1",
     url = "http://cat.cat",
     width = 1,
     height = 2
 )
 
 val rawCatWithProtectedUrl = CatResponseItem(
-    id = "cat",
+    id = "cat2",
     url = "https://cat.cat",
     width = 1,
     height = 2
 )
 
-val referenceCat = CatResponseItem(
-    id = "cat",
-    url = "https://cat.cat",
-    width = 1,
-    height = 2
+val referenceCats = listOf(
+    CatResponseItem(
+        id = "cat1",
+        url = "https://cat.cat",
+        width = 1,
+        height = 2
+    ),
+    CatResponseItem(
+        id = "cat2",
+        url = "https://cat.cat",
+        width = 1,
+        height = 2
+    )
 )
 
 @Suppress("FunctionName")

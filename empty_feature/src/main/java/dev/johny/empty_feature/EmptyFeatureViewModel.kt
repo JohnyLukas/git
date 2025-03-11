@@ -21,9 +21,7 @@ class EmptyFeatureViewModel(
     fun getCat() {
         viewModelScope.launch(Dispatchers.IO) {
             val result = catApiRepository.search()
-            _cats.value = result.map { cat ->
-                catMapper.replaceUnsafeUrl(cat)
-            }
+            _cats.value = catMapper.replaceUnsafeUrl(result)
         }
     }
 
